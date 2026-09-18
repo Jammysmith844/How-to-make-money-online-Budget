@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Side Hustle Income &amp; Budget Calculator · Plan your extra income</title>
+  <meta name="description" content="Work out what a side hustle actually pays after expenses, taxes, and time. Enter your hourly rate and hours per week to see weekly, monthly, and yearly net income.">
+  
+  <!-- Canonical -->
+  <link rel="canonical" href="https://jammysmith844.github.io/how-to-make-money-online-budget/" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Side Hustle Income &amp; Budget Calculator">
+  <meta property="og:description" content="Work out what a side hustle actually pays after expenses, taxes, and time. See weekly, monthly, and yearly net income.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jammysmith844.github.io/how-to-make-money-online-budget/">
+  <meta property="og:image" content="https://jammysmith844.github.io/how-to-make-money-online-budget/og-side-hustle.png">
+  <meta property="og:image:alt" content="Side hustle income calculator with hourly rate, hours per week, and net income results">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Side Hustle Income &amp; Budget Calculator">
+  <meta name="twitter:description" content="Work out what a side hustle actually pays after expenses, taxes, and time.">
+  <meta name="twitter:image" content="https://jammysmith844.github.io/how-to-make-money-online-budget/og-side-hustle.png">
+  
+  <!-- Favicon (inline SVG) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23059669'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='system-ui, sans-serif' font-weight='bold'%3E%24%3C/text%3E%3C/svg%3E">
+  
+  <!-- CSS (inline for performance) -->
+  <style>
+    /* ---------- RESET & BASE ---------- */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-alt: #f1f5f9;
+      --border: #e2e8f0;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --primary: #059669;
+      --primary-hover: #047857;
+      --primary-focus: #a7f3d0;
+      --primary-light: #f0fdf4;
+      --accent: #0ea5e9;
+      --accent-light: #f0f9ff;
+      --error: #b91c1c;
+      --error-bg: #fef2f2;
+      --success: #15803d;
+      --success-bg: #f0fdf4;
+      --warn: #d97706;
+      --warn-bg: #fffbeb;
+      --radius-sm: 6px;
+      --radius: 12px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.03);
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      --font-mono: 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
+      --transition: 150ms ease;
+      --max-width: 960px;
+    }
+
+    html {
+      font-size: 100%;
+      -webkit-text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+    }
+
+    /* ---------- TYPOGRAPHY ---------- */
+    h1, h2, h3 {
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--text-primary);
+    }
+
+    h1 {
+      font-size: 2rem;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      font-size: 1.125rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--text-secondary);
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color var(--transition);
+    }
+    a:hover {
+      color: var(--primary-hover);
+      text-decoration: underline;
+    }
+
+    /* ---------- LAYOUT ---------- */
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* Header */
+    .site-header {
+      background-color: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(8px);
+      background-color: rgba(255, 255, 255, 0.92);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+    .logo:hover {
+      text-decoration: none;
+      color: var(--primary);
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      background-color: var(--primary);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 700;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      font-size: 0.9375rem;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      font-weight: 500;
+      text-decoration: none;
+      padding: 0.25rem 0;
+      border-bottom: 2px solid transparent;
+      transition: border-color var(--transition), color var(--transition);
+    }
+    .nav-links a:hover {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+      text-decoration: none;
+    }
+
+    @media (max-width: 640px) {
+      .nav-links {
+        gap: 1rem;
+      }
+      .nav-links a {
+        font-size: 0.875rem;
+      }
+      h1 {
+        font-size: 1.65rem;
+      }
+    }
+
+    /* Ad banner container (between header and main) */
+    .ad-banner {
+      background: #f1f5f9;
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 260px;
+      overflow: hidden;
+    }
+
+    .ad-banner .ad-inner {
+      width: 100%;
+      max-width: 300px;
+      min-height: 250px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--surface);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    /* Main content */
+    main {
+      flex: 1;
+      padding: 2rem 0 3rem;
+    }
+
+    /* ---------- CALCULATOR CARD ---------- */
+    .calc-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 2rem;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    .calc-card:focus-within {
+      border-color: var(--primary-focus);
+      box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 1.1rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+      color: var(--text-secondary);
+    }
+
+    input[type="number"],
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 0.65rem 0.75rem;
+      font-size: 1rem;
+      font-family: var(--font-sans);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+      color: var(--text-primary);
+      transition: border-color var(--transition), box-shadow var(--transition);
+      -moz-appearance: textfield;
+      appearance: textfield;
+    }
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-focus);
+    }
+
+    .input-hint {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .input-with-prefix {
+      position: relative;
+    }
+    .input-with-prefix::before {
+      content: attr(data-prefix);
+      position: absolute;
+      left: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-weight: 500;
+      pointer-events: none;
+    }
+    .input-with-prefix input {
+      padding-left: 1.6rem;
+    }
+
+    .options-row {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (max-width: 540px) {
+      .options-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Results panel */
+    .results-panel {
+      margin-top: 1.75rem;
+      padding-top: 1.5rem;
+      border-top: 2px dashed var(--border);
+    }
+
+    .results-headline {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .results-headline .label {
+      font-size: 0.8125rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .results-headline .amount {
+      font-family: var(--font-mono);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.1;
+      word-break: break-all;
+    }
+
+    .results-headline .sub {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      margin-top: 0.35rem;
+    }
+
+    .results-grid {
+      display: grid;
+      gap: 0.75rem;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 540px) {
+      .results-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .result-item {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.9rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .result-item .label {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .result-item .value {
+      font-family: var(--font-mono);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      word-break: break-all;
+    }
+
+    .result-item .value.negative {
+      color: var(--error);
+    }
+    .result-item .value.positive {
+      color: var(--success);
+    }
+
+    .result-item .sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.1rem;
+    }
+
+    .result-item.highlight {
+      background: var(--primary-light);
+      border-color: var(--primary-focus);
+    }
+    .result-item.highlight .value {
+      color: var(--primary);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.65rem 1.25rem;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      font-family: var(--font-sans);
+      line-height: 1.2;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background-color var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
+      text-decoration: none;
+      background-color: transparent;
+      color: var(--text-secondary);
+    }
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    .btn-primary:hover {
+      background-color: var(--primary-hover);
+      border-color: var(--primary-hover);
+      color: white;
+      text-decoration: none;
+    }
+    .btn-primary:focus-visible {
+      outline: 2px solid var(--primary-focus);
+      outline-offset: 2px;
+    }
+
+    .btn-secondary {
+      border-color: var(--border);
+      background-color: var(--surface);
+      color: var(--text-secondary);
+    }
+    .btn-secondary:hover {
+      background-color: #f1f5f9;
+      border-color: #cbd5e1;
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+    .btn-secondary:focus-visible {
+      outline: 2px solid var(--primary-focus);
+      outline-offset: 2px;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    /* Status messages */
+    .status-msg {
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 1rem;
+      font-size: 0.9375rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .status-msg.error {
+      background: var(--error-bg);
+      color: var(--error);
+    }
+
+    .status-msg.warn {
+      background: var(--warn-bg);
+      color: var(--warn);
+    }
+
+    .status-msg.info {
+      background: var(--accent-light);
+      color: var(--accent);
+    }
+
+    /* Shareable summary */
+    .summary-box {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.15rem;
+      margin-top: 1.25rem;
+      font-size: 0.9375rem;
+      line-height: 1.55;
+      color: var(--text-secondary);
+      white-space: pre-wrap;
+      font-family: var(--font-mono);
+      word-break: break-word;
+    }
+
+    /* ---------- INFO SECTIONS ---------- */
+    .info-section {
+      margin: 3rem 0 2rem;
+    }
+
+    .info-section h2 {
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
+
+    .info-section h3 {
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .info-section ul, .info-section ol {
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--text-secondary);
+    }
+    .info-section li {
+      margin-bottom: 0.4rem;
+    }
+
+    /* FAQ */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin: 1.5rem 0;
+    }
+
+    details {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.5rem 1rem;
+      transition: border-color var(--transition);
+    }
+    details[open] {
+      border-color: var(--primary-focus);
+    }
+    summary {
+      font-weight: 500;
+      cursor: pointer;
+      padding: 0.5rem 0;
+      color: var(--text-primary);
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    summary::-webkit-details-marker {
+      display: none;
+    }
+    summary::after {
+      content: "+";
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      transition: transform var(--transition);
+    }
+    details[open] summary::after {
+      transform: rotate(45deg);
+    }
+    details p {
+      padding: 0 0 0.75rem 0;
+      margin: 0;
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+    }
+
+    /* ---------- FOOTER ---------- */
+    .site-footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      margin-top: auto;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem 2rem;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+    .footer-links a:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    .footer-copy {
+      color: var(--text-muted);
+      font-size: 0.8125rem;
+    }
+
+    @media (min-width: 640px) {
+      .footer-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    /* Accessibility & utilities */
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    /* small screens */
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 1rem;
+      }
+      .calc-card {
+        padding: 1.25rem 1rem;
+      }
+      .results-headline .amount {
+        font-size: 2rem;
+      }
+      .btn {
+        width: 100%;
+      }
+      .btn-group {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="logo" aria-label="Side Hustle Calculator home">
+        <span class="logo-mark" aria-hidden="true">$</span>
+        <span>HustleCalc</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#calculator">Calculator</a>
+        <a href="#how">How it works</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Ad banner (between header and main) -->
+  <div class="ad-banner" aria-hidden="true">
+    <div class="ad-inner">
+      <script>
+        atOptions = {
+          'key' : '326e7a00ed2468a9c37eb9565b13e0bd',
+          'format' : 'iframe',
+          'height' : 250,
+          'width' : 300,
+          'params' : {}
+        };
+      </script>
+      <script src="https://www.highrevenueformat.com/326e7a00ed2468a9c37eb9565b13e0bd/invoke.js"></script>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <div class="container">
+      <!-- H1 & intro -->
+      <h1>Side hustle income &amp; budget calculator</h1>
+      <p style="max-width: 65ch; margin-bottom: 1.75rem;">
+        Work out what a side hustle actually pays after time, expenses, and taxes. Enter your rate and hours, and see the real numbers — weekly, monthly, and yearly.
+      </p>
+
+      <!-- ---------- CALCULATOR ---------- -->
+      <section id="calculator" class="calc-card" aria-label="Side hustle income calculator">
+        <form id="hustle-form" novalidate>
+          <div class="options-row">
+            <div class="form-group">
+              <label for="currency">Currency</label>
+              <select id="currency" name="currency" aria-describedby="currency-hint">
+                <option value="USD" selected>USD ($)</option>
+                <option value="EUR">EUR (€)</option>
+                <option value="GBP">GBP (£)</option>
+                <option value="PKR">PKR (₨)</option>
+                <option value="INR">INR (₹)</option>
+                <option value="AUD">AUD (A$)</option>
+                <option value="CAD">CAD (C$)</option>
+                <option value="AED">AED (د.إ)</option>
+              </select>
+              <div id="currency-hint" class="input-hint">Used for formatting only — no conversion is applied.</div>
+            </div>
+            <div class="form-group">
+              <label for="rate-type">Rate type</label>
+              <select id="rate-type" name="rate-type">
+                <option value="hourly" selected>Per hour</option>
+                <option value="project">Per project / gig</option>
+                <option value="monthly">Fixed monthly</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="options-row">
+            <div class="form-group">
+              <label for="rate" id="rate-label">Hourly rate</label>
+              <div class="input-with-prefix" data-prefix="$" id="rate-prefix-wrap">
+                <input type="number" id="rate" name="rate" placeholder="e.g. 15" step="any" min="0" inputmode="decimal" autocomplete="off">
+              </div>
+            </div>
+            <div class="form-group" id="hours-group">
+              <label for="hours">Hours per week</label>
+              <input type="number" id="hours" name="hours" placeholder="e.g. 10" step="any" min="0" max="168" inputmode="decimal" autocomplete="off">
+              <div class="input-hint">Include prep, admin, and travel time — not just billed hours.</div>
+            </div>
+          </div>
+
+          <div class="options-row">
+            <div class="form-group">
+              <label for="expenses">Monthly expenses</label>
+              <div class="input-with-prefix" data-prefix="$" id="expenses-prefix-wrap">
+                <input type="number" id="expenses" name="expenses" placeholder="e.g. 40" step="any" min="0" inputmode="decimal" autocomplete="off">
+              </div>
+              <div class="input-hint">Software, tools, gas, materials, subscription fees.</div>
+            </div>
+            <div class="form-group">
+              <label for="tax-rate">Estimated tax rate (%)</label>
+              <input type="number" id="tax-rate" name="tax-rate" placeholder="e.g. 15" step="any" min="0" max="100" inputmode="decimal" autocomplete="off" value="0">
+              <div class="input-hint">Your marginal rate. Set to 0 if unsure or if income is below the tax threshold.</div>
+            </div>
+          </div>
+
+          <div class="btn-group">
+            <button type="submit" class="btn btn-primary">Calculate</button>
+            <button type="button" class="btn btn-secondary" id="reset-btn">Reset</button>
+            <button type="button" class="btn btn-secondary" id="copy-btn" disabled>Copy summary</button>
+          </div>
+        </form>
+
+        <div id="status-container" aria-live="polite"></div>
+
+        <div class="results-panel" id="results" hidden>
+          <div class="results-headline">
+            <div class="label">Net monthly take-home</div>
+            <div class="amount" id="net-monthly">—</div>
+            <div class="sub" id="net-monthly-sub">after expenses and estimated tax</div>
+          </div>
+
+          <div class="results-grid">
+            <div class="result-item">
+              <span class="label">Gross weekly</span>
+              <span class="value" id="gross-weekly">—</span>
+              <span class="sub">before expenses and tax</span>
+            </div>
+            <div class="result-item">
+              <span class="label">Gross monthly</span>
+              <span class="value" id="gross-monthly">—</span>
+              <span class="sub">approx. 4.33 weeks</span>
+            </div>
+            <div class="result-item highlight">
+              <span class="label">Gross yearly</span>
+              <span class="value" id="gross-yearly">—</span>
+              <span class="sub">before expenses and tax</span>
+            </div>
+            <div class="result-item">
+              <span class="label">Net yearly</span>
+              <span class="value" id="net-yearly">—</span>
+              <span class="sub">after expenses and tax</span>
+            </div>
+            <div class="result-item">
+              <span class="label">Effective hourly (net)</span>
+              <span class="value" id="effective-hourly">—</span>
+              <span class="sub">what you keep per hour worked</span>
+            </div>
+            <div class="result-item">
+              <span class="label">Time invested / year</span>
+              <span class="value" id="hours-yearly">—</span>
+              <span class="sub">hours across the year</span>
+            </div>
+          </div>
+
+          <div class="summary-box" id="summary-box" hidden></div>
+        </div>
+      </section>
+
+      <!-- ---------- HOW IT WORKS ---------- -->
+      <section class="info-section" id="how">
+        <h2>How the calculation works</h2>
+        <p>This calculator turns a rate and a schedule into a realistic picture of what a side hustle pays. It applies four simple steps:</p>
+        <ol>
+          <li><strong>Gross income</strong> — rate × hours (or rate per project × projects per month, or fixed monthly income).</li>
+          <li><strong>Subtract expenses</strong> — tools, materials, fuel, subscriptions, and any other recurring cost.</li>
+          <li><strong>Subtract estimated tax</strong> — a flat percentage you choose, applied to the profit.</li>
+          <li><strong>Divide by actual hours worked</strong> — including prep and admin — to get your real effective hourly rate.</li>
+        </ol>
+        <p>The effective hourly number is often the most useful output. A gig that pays $30/hour but takes 2 hours of prep for every 1 hour billed is really paying $10/hour.</p>
+      </section>
+
+      <!-- ---------- EXAMPLES ---------- -->
+      <section class="info-section" id="examples">
+        <h2>Worked examples</h2>
+        <h3>Freelance writing</h3>
+        <p>$40/hour, 8 hours per week, $25/month in software, 15% tax. Gross yearly is about $16,640. After expenses and tax, net is roughly $13,960 — about $13.42/hour after everything.</p>
+
+        <h3>Weekend driving / delivery</h3>
+        <p>$18/hour, 12 hours per week, $120/month in fuel and maintenance, 10% tax. Gross yearly is about $11,232. Net after costs lands near $8,570. The effective hourly rate drops once fuel is accounted for.</p>
+
+        <h3>Small Etsy shop</h3>
+        <p>Fixed $600/month revenue, $180/month in materials and fees, 20% tax. Net is around $4,032/year. If you spend 15 hours per week on it, that works out to about $5.17/hour — a useful reality check.</p>
+      </section>
+
+      <!-- ---------- TIPS ---------- -->
+      <section class="info-section" id="tips">
+        <h2>Good to know before you commit</h2>
+        <ul>
+          <li><strong>Count every hour.</strong> Prep, admin, invoicing, and travel are real work. If you only count billed hours, your effective rate will look better than it is.</li>
+          <li><strong>Track expenses from day one.</strong> A separate bank account or a simple spreadsheet makes tax time far easier.</li>
+          <li><strong>Tax rates vary widely.</strong> Side income is often taxed at your marginal rate, which can be higher than you expect. Ask an accountant if you're unsure.</li>
+          <li><strong>Fixed monthly income isn't always passive.</strong> If it requires ongoing work, divide by the hours it takes to keep it running.</li>
+          <li><strong>Scale matters.</strong> Doubling hours doesn't always double net income if expenses scale with volume.</li>
+        </ul>
+      </section>
+
+      <!-- ---------- FAQ ---------- -->
+      <section class="info-section" id="faq">
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details>
+            <summary>What tax rate should I use?</summary>
+            <p>Use your marginal income tax rate plus any self-employment or social contributions that apply in your country. If you don't know it, start with 15% as a conservative placeholder and adjust once you've spoken to an accountant.</p>
+          </details>
+          <details>
+            <summary>Should I include travel time?</summary>
+            <p>Yes, if the travel is required for the work. A delivery job that pays for 8 hours but takes 10 door-to-door is really paying you for 10 hours of your day. Including it gives a truer effective hourly rate.</p>
+          </details>
+          <details>
+            <summary>Why is my effective hourly rate so much lower than my headline rate?</summary>
+            <p>Because the headline rate usually only counts billed time. Once you subtract unbilled prep, admin, expenses, and tax, the real figure drops. This is normal and is the main reason people misjudge side-hustle income.</p>
+          </details>
+          <details>
+            <summary>Does this calculator handle multiple income streams?</summary>
+            <p>Not directly. Run it once per stream to get a per-stream picture, then add the net monthly figures together for a combined number. Keeping streams separate also makes it easier to see which ones are actually worth your time.</p>
+          </details>
+          <details>
+            <summary>Does the calculator store my numbers?</summary>
+            <p>No. Everything runs in your browser. Nothing is sent anywhere, and closing the tab wipes the inputs.</p>
+          </details>
+        </div>
+      </section>
+
+      <!-- ---------- LIMITATIONS ---------- -->
+      <section class="info-section" id="limitations">
+        <h2>Limitations</h2>
+        <ul>
+          <li>The tax field is a simple flat percentage. It does not model brackets, deductions, credits, or country-specific rules.</li>
+          <li>Currency selection changes the symbol only. No exchange rates are applied.</li>
+          <li>Expenses are treated as a flat monthly figure — they don't scale with hours.</li>
+          <li>The calculator does not produce tax documents or reports. For filing, use dedicated accounting software or speak to an accountant.</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <!-- ---------- FOOTER ---------- -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-links">
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </div>
+      <div class="footer-copy">
+        © 2025 HustleCalc. All calculations run in your browser.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ---------- JAVASCRIPT ---------- -->
+  <script>
+    (function() {
+      "use strict";
+
+      // ----- DOM refs -----
+      var form = document.getElementById("hustle-form");
+      var currencySelect = document.getElementById("currency");
+      var rateTypeSelect = document.getElementById("rate-type");
+      var rateInput = document.getElementById("rate");
+      var hoursInput = document.getElementById("hours");
+      var hoursGroup = document.getElementById("hours-group");
+      var expensesInput = document.getElementById("expenses");
+      var taxInput = document.getElementById("tax-rate");
+      var rateLabel = document.getElementById("rate-label");
+      var ratePrefixWrap = document.getElementById("rate-prefix-wrap");
+      var expensesPrefixWrap = document.getElementById("expenses-prefix-wrap");
+      var results = document.getElementById("results");
+      var statusContainer = document.getElementById("status-container");
+      var resetBtn = document.getElementById("reset-btn");
+      var copyBtn = document.getElementById("copy-btn");
+      var summaryBox = document.getElementById("summary-box");
+
+      // Result display elements
+      var netMonthlyEl = document.getElementById("net-monthly");
+      var netMonthlySubEl = document.getElementById("net-monthly-sub");
+      var grossWeeklyEl = document.getElementById("gross-weekly");
+      var grossMonthlyEl = document.getElementById("gross-monthly");
+      var grossYearlyEl = document.getElementById("gross-yearly");
+      var netYearlyEl = document.getElementById("net-yearly");
+      var effectiveHourlyEl = document.getElementById("effective-hourly");
+      var hoursYearlyEl = document.getElementById("hours-yearly");
+
+      // Currency symbols
+      var CURRENCY_SYMBOLS = {
+        USD: "$", EUR: "€", GBP: "£", PKR: "₨",
+        INR: "₹", AUD: "A$", CAD: "C$", AED: "د.إ"
+      };
+
+      // State
+      var lastSummaryText = "";
+
+      // ----- Helpers -----
+      function getSymbol() {
+        return CURRENCY_SYMBOLS[currencySelect.value] || "$";
+      }
+
+      function formatMoney(value) {
+        if (!isFinite(value)) return "—";
+        var symbol = getSymbol();
+        var abs = Math.abs(value);
+        var formatted;
+        if (abs >= 1000000) {
+          formatted = (value / 1000000).toFixed(2) + "M";
+        } else if (abs >= 10000) {
+          formatted = value.toLocaleString(undefined, { maximumFractionDigits: 0 });
+        } else {
+          formatted = value.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+        return symbol + formatted;
+      }
+
+      function formatNumber(value, decimals) {
+        if (!isFinite(value)) return "—";
+        if (decimals === undefined) decimals = 2;
+        return value.toLocaleString(undefined, {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: decimals
+        });
+      }
+
+      function showStatus(message, type) {
+        statusContainer.innerHTML = '<div class="status-msg ' + (type || "info") + '" role="alert">' + message + '</div>';
+      }
+      function clearStatus() {
+        statusContainer.innerHTML = "";
+      }
+
+      function parseInput(el) {
+        var v = el.value.trim();
+        if (v === "") return NaN;
+        var n = Number(v);
+        return isNaN(n) ? NaN : n;
+      }
+
+      // ----- Update prefix + label when currency / rate type changes -----
+      function updatePrefixes() {
+        var symbol = getSymbol();
+        ratePrefixWrap.setAttribute("data-prefix", symbol);
+        expensesPrefixWrap.setAttribute("data-prefix", symbol);
+      }
+
+      function updateRateLabel() {
+        var type = rateTypeSelect.value;
+        if (type === "hourly") {
+          rateLabel.textContent = "Hourly rate";
+          rateInput.placeholder = "e.g. 15";
+          hoursGroup.style.display = "";
+          hoursInput.disabled = false;
+        } else if (type === "project") {
+          rateLabel.textContent = "Rate per project / gig";
+          rateInput.placeholder = "e.g. 50";
+          hoursGroup.style.display = "";
+          hoursInput.disabled = false;
+        } else if (type === "monthly") {
+          rateLabel.textContent = "Fixed monthly income";
+          rateInput.placeholder = "e.g. 600";
+          hoursGroup.style.display = "";
+          hoursInput.disabled = false;
+        }
+      }
+
+      // ----- Core calculation -----
+      function calculate() {
+        clearStatus();
+
+        var rate = parseInput(rateInput);
+        var hours = parseInput(hoursInput);
+        var expenses = parseInput(expensesInput);
+        var taxPct = parseInput(taxInput);
+
+        if (isNaN(taxPct)) taxPct = 0;
+        if (isNaN(expenses)) expenses = 0;
+
+        // Validation
+        if (isNaN(rate) || rate < 0) {
+          showStatus("Please enter a valid non-negative rate.", "error");
+          results.hidden = true;
+          copyBtn.disabled = true;
+          return;
+        }
+        if (isNaN(hours) || hours < 0) {
+          showStatus("Please enter valid hours per week (0 or more).", "error");
+          results.hidden = true;
+          copyBtn.disabled = true;
+          return;
+        }
+        if (hours > 168) {
+          showStatus("Hours per week cannot exceed 168 (there are only 168 hours in a week).", "error");
+          results.hidden = true;
+          copyBtn.disabled = true;
+          return;
+        }
+        if (taxPct < 0 || taxPct > 100) {
+          showStatus("Tax rate must be between 0 and 100.", "error");
+          results.hidden = true;
+          copyBtn.disabled = true;
+          return;
+        }
+        if (expenses < 0) {
+          showStatus("Expenses cannot be negative.", "error");
+          results.hidden = true;
+          copyBtn.disabled = true;
+          return;
+        }
+
+        // Sanity: nothing to calculate
+        if (rate === 0 || hours === 0) {
+          showStatus("Enter a rate and hours greater than zero to see results.", "warn");
+          results.hidden = true;
+          copyBtn.disabled = true;
+          return;
+        }
+
+        // Compute gross income based on rate type
+        var type = rateTypeSelect.value;
+        var grossWeekly, grossMonthly, grossYearly;
+
+        if (type === "hourly") {
+          grossWeekly = rate * hours;
+          grossMonthly = grossWeekly * 4.333;
+          grossYearly = grossWeekly * 52;
+        } else if (type === "project") {
+          // Interpret rate as per-project; hours as total hours per week (including prep)
+          // Assume projects per week = hours / (hours per project) — we simplify:
+          // Treat "rate per project" as if one project = one week's worth of work for simplicity.
+          // This is a simplification; document it clearly.
+          grossWeekly = rate;
+          grossMonthly = grossWeekly * 4.333;
+          grossYearly = grossWeekly * 52;
+        } else { // monthly
+          grossMonthly = rate;
+          grossWeekly = rate / 4.333;
+          grossYearly = rate * 12;
+        }
+
+        var monthlyExpenses = expenses;
+        var yearlyExpenses = expenses * 12;
+
+        // Profit before tax
+        var profitMonthly = grossMonthly - monthlyExpenses;
+        var profitYearly = grossYearly - yearlyExpenses;
+
+        // Apply tax on positive profit only
+        var taxRate = taxPct / 100;
+        var taxMonthly = profitMonthly > 0 ? profitMonthly * taxRate : 0;
+        var taxYearly = profitYearly > 0 ? profitYearly * taxRate : 0;
+
+        var netMonthly = profitMonthly - taxMonthly;
+        var netYearly = profitYearly - taxYearly;
+        var netWeekly = netMonthly / 4.333;
+
+        // Effective hourly (net) — based on hours worked
+        var totalHoursYearly = hours * 52;
+        var effectiveHourly = totalHoursYearly > 0 ? netYearly / totalHoursYearly : 0;
+
+        // Render
+        netMonthlyEl.textContent = formatMoney(netMonthly);
+        netMonthlyEl.style.color = netMonthly < 0 ? "var(--error)" : "";
+
+        netMonthlySubEl.textContent = netMonthly < 0
+          ? "You are losing money each month at these numbers."
+          : "after expenses and estimated tax";
+
+        grossWeeklyEl.textContent = formatMoney(grossWeekly);
+        grossMonthlyEl.textContent = formatMoney(grossMonthly);
+        grossYearlyEl.textContent = formatMoney(grossYearly);
+        netYearlyEl.textContent = formatMoney(netYearly);
+        netYearlyEl.classList.toggle("negative", netYearly < 0);
+        netYearlyEl.classList.toggle("positive", netYearly > 0);
+
+        effectiveHourlyEl.textContent = formatMoney(effectiveHourly);
+        effectiveHourlyEl.classList.toggle("negative", effectiveHourly < 0);
+
+        hoursYearlyEl.textContent = formatNumber(totalHoursYearly, 0) + " h";
+
+        // Summary text for copy
+        lastSummaryText =
+          "Side hustle summary\n" +
+          "--------------------\n" +
+          "Rate type: " + rateTypeSelect.options[rateTypeSelect.selectedIndex].text + "\n" +
+          "Rate: " + formatMoney(rate) + "\n" +
+          "Hours per week: " + formatNumber(hours, 2) + "\n" +
+          "Monthly expenses: " + formatMoney(monthlyExpenses) + "\n" +
+          "Estimated tax rate: " + taxPct + "%\n" +
+          "\n" +
+          "Gross weekly: " + formatMoney(grossWeekly) + "\n" +
+          "Gross monthly: " + formatMoney(grossMonthly) + "\n" +
+          "Gross yearly: " + formatMoney(grossYearly) + "\n" +
+          "\n" +
+          "Net monthly (after costs & tax): " + formatMoney(netMonthly) + "\n" +
+          "Net yearly: " + formatMoney(netYearly) + "\n" +
+          "Effective net hourly: " + formatMoney(effectiveHourly) + "\n" +
+          "Total hours per year: " + formatNumber(totalHoursYearly, 0) + "\n";
+
+        summaryBox.textContent = lastSummaryText;
+        summaryBox.hidden = false;
+
+        results.hidden = false;
+        copyBtn.disabled = false;
+
+        if (netMonthly < 0) {
+          showStatus("Heads up: at these numbers, the side hustle costs you money each month. Check expenses and hours.", "warn");
+        }
+      }
+
+      // ----- Form handlers -----
+      form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        calculate();
+      });
+
+      rateTypeSelect.addEventListener("change", function() {
+        updateRateLabel();
+      });
+
+      currencySelect.addEventListener("change", function() {
+        updatePrefixes();
+        // Re-run if results are visible so currency updates
+        if (!results.hidden) calculate();
+      });
+
+      resetBtn.addEventListener("click", function() {
+        form.reset();
+        results.hidden = true;
+        summaryBox.hidden = true;
+        summaryBox.textContent = "";
+        clearStatus();
+        copyBtn.disabled = true;
+        updatePrefixes();
+        updateRateLabel();
+        rateInput.focus();
+      });
+
+      copyBtn.addEventListener("click", function() {
+        if (!lastSummaryText) return;
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(lastSummaryText).then(function() {
+            showStatus("Summary copied to clipboard.", "info");
+          }).catch(function() {
+            showStatus("Could not copy automatically. Please select and copy the summary manually.", "error");
+          });
+        } else {
+          // Fallback
+          var ta = document.createElement("textarea");
+          ta.value = lastSummaryText;
+          ta.style.position = "fixed";
+          ta.style.opacity = "0";
+          document.body.appendChild(ta);
+          ta.select();
+          try {
+            document.execCommand("copy");
+            showStatus("Summary copied to clipboard.", "info");
+          } catch (err) {
+            showStatus("Copy failed. Please select and copy manually.", "error");
+          }
+          document.body.removeChild(ta);
+        }
+      });
+
+      // ----- Initial state -----
+      updatePrefixes();
+      updateRateLabel();
+
+    })();
+  </script>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "HustleCalc",
+    "description": "A free side hustle income and budget calculator. Work out what a side gig actually pays after expenses, tax, and time.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Calculate gross and net side hustle income",
+      "Support for hourly, per-project, and fixed monthly rates",
+      "Estimated tax deduction",
+      "Effective hourly rate after all costs",
+      "Copy summary to clipboard"
+    ]
+  }
+  </script>
+</body>
+</html>
